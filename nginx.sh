@@ -206,8 +206,8 @@ name() { local name=$1 oldname=${2:-localhost} \
     sed -i 's|\(^ *server_name\) '"$oldname"';|\1 '"$name"';|' $file
     dir=/etc/nginx/certs/$name
     mkdir -p $dir
-    ln /etc/nginx/ssl/fullchain.pem $dir/fullchain.pem
-    ln /etc/nginx/ssl/privkey.pem $dir/privkey.pem
+    ln -s /etc/nginx/ssl/fullchain.pem $dir/fullchain.pem
+    ln -s /etc/nginx/ssl/privkey.pem $dir/privkey.pem
 }
 
 ### ssi: Server Side Includes
